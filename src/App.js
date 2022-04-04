@@ -8,14 +8,29 @@ import Popup from "./components/Popup";
 import WrongLetters from "./components/WrongLetters";
 import { showNotification as show } from "./helpers/helpers";
 
-const words = ["application", "programming", "interface", "wizard"];
+const words = [
+  "application",
+  "programming",
+  "interface",
+  "wizard",
+  "house",
+  "stage",
+  "saxaphone",
+  "quandry",
+  "spirit",
+  "activate",
+  "momentum",
+  "molecular",
+  "trainwreck",
+  "Hippopotamus",
+];
 
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 
-let playable = true;
+// let playable = true;
 
-const correctLetters = [];
-const wrongLetters = [];
+// const correctLetters = [];
+// const wrongLetters = [];
 
 function App() {
   const [playable, setPlayable] = useState(true);
