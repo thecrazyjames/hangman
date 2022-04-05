@@ -7,6 +7,7 @@ import Notification from "./components/Notification";
 import Popup from "./components/Popup";
 import WrongLetters from "./components/WrongLetters";
 import { showNotification as show } from "./helpers/helpers";
+import Keyboard from "./components/Keyboard";
 
 const words = [
   "application",
@@ -23,6 +24,24 @@ const words = [
   "molecular",
   "trainwreck",
   "Hippopotamus",
+  "drainage",
+  "three",
+  "pointer",
+  "teacher",
+  "childredn",
+  "hoops",
+  "bunny",
+  "giraffe",
+  "zebra",
+  "monkey",
+  "field",
+  "zipper",
+  "voice",
+  "alloy",
+  "leggings",
+  "alpha",
+  "remote",
+  "headphones",
 ];
 
 let selectedWord = words[Math.floor(Math.random() * words.length)];
@@ -83,16 +102,28 @@ function App() {
       <div className="game-container">
         <Figure wrongLetters={wrongLetters} />
         <WrongLetters wrongLetters={wrongLetters} />
+
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
+        <Popup
+          correctLetters={correctLetters}
+          wrongLetters={wrongLetters}
+          setPlayable={setPlayable}
+          selectedWord={selectedWord}
+          playAgain={playAgain}
+        />
       </div>
-      <Popup
-        correctLetters={correctLetters}
-        wrongLetters={wrongLetters}
-        setPlayable={setPlayable}
-        selectedWord={selectedWord}
-        playAgain={playAgain}
-      />
-      <Notification showNotification={showNotification} />
+      <div>
+        <Notification showNotification={showNotification} />
+        <Keyboard
+          correctLetters={correctLetters}
+          setCorrectLetters={setCorrectLetters}
+          wrongLetters={wrongLetters}
+          setWrongLetters={setWrongLetters}
+          playable={playable}
+          selectedWord={selectedWord}
+          setShowNotification={setShowNotification}
+        />
+      </div>
     </div>
   );
 }
